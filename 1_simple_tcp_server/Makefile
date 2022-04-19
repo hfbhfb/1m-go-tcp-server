@@ -31,7 +31,7 @@ workwithprocess:killprocess
 
 
 killprocess:
-	-ssh $(SERVER1) "bash opt.sh"
+	-ssh $(SERVER1) "cd ${GZProDir} && bash opt.sh"
 	@echo "杀死进程"
 
 
