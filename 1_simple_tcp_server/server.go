@@ -70,5 +70,5 @@ func setLimit() {
 		panic(err)
 	}
 
-	log.Printf("set cur limit: %d", rLimit.Cur)
+	fmt.Printf("set cur limit: %d", rLimit.Cur)
 }
