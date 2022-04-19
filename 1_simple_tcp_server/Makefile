@@ -31,7 +31,8 @@ workwithprocess:killprocess
 
 
 killprocess:
-	-ssh $(SERVER1) "bash `ps -aux|grep runableapp1m|grep asserver|awk '{print $$2}'|xargs kill`"
+	#-ssh $(SERVER1) " ps -aux|grep runableapp1m|grep asserver|awk '{print $$2}'|xargs kill"
+	-ssh $(SERVER1) " ps -aux|grep runableapp1m|grep asserver|awk '{print $$2}'"
 	@echo "杀死进程"
 
 
