@@ -35,6 +35,7 @@ func main() {
 	}
 
 	defer func() {
+		log.Printf("defer %d 连接", len(conns))
 		for _, c := range conns {
 			c.Close()
 		}
@@ -51,7 +52,7 @@ func main() {
 		for i := 0; i < len(conns); i++ {
 			time.Sleep(tts)
 			conn := conns[i]
-			//log.Printf("连接 %d 发送数据", i)
+			// log.Printf("连接 %d 发送数据", i)
 			conn.Write([]byte("hello world\r\n"))
 		}
 	}
