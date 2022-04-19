@@ -88,4 +88,5 @@ func setLimit() {
 	}
 
 	fmt.Printf("set cur limit: %d", rLimit.Cur)
+	fmt.Println("")
 }
