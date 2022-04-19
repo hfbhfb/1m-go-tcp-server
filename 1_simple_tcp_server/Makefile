@@ -22,7 +22,7 @@ imgprepare:
 	
 
 stopdocker:
-	-docker stop 1mappcontain
+	-docker stop appcontain1m
 
 startdocker:
-	-docker run --name 1mappcontain --restart always -p 8972:8972 -d ${Version}:${Version}
+	-docker run --name appcontain1m --restart always -p 8972:8972 -d ${Version}:${Version}
