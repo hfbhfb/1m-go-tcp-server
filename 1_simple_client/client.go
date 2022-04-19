@@ -11,7 +11,7 @@ import (
 
 var (
 	ip          = flag.String("ip", "192.168.1.104", "server IP")
-	connections = flag.Int("conn", 3000, "number of tcp connections")
+	connections = flag.Int("conn", 30000, "number of tcp connections")
 	startMetric = flag.String("sm", time.Now().Format("2006-01-02T15:04:05 -0700"), "start time point of all clients")
 )
 
