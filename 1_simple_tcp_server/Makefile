@@ -20,13 +20,17 @@ fileprepare:
 
 
 build:
-	ssh $(SERVER1) "cd ${GZProDir} && export CGO_ENABLED=0 && go build -o runableapp "
+	ssh $(SERVER1) "cd ${GZProDir} && export CGO_ENABLED=0 && go build -o runableapp1m "
 	@echo "编译"
 
 
-workwithprocess:
-	ssh $(SERVER1) "cd ${GZProDir} && nohup ./runableapp asserver &"
+workwithprocess:killprocess
+	ssh $(SERVER1) "cd ${GZProDir} && nohup ./runableapp1m asserver &"
 	@echo "以进程方式打开"
+
+killprocess:
+	@echo "杀死进程"
+
 
 
 work:imgprepare stopdocker startdocker 

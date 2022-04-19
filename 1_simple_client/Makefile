@@ -20,13 +20,18 @@ fileprepare:
 
 
 build:
-	ssh $(SERVER1) "cd ${GZProDir} && export CGO_ENABLED=0 && go build -o runableapp "
+	ssh $(SERVER1) "cd ${GZProDir} && export CGO_ENABLED=0 && go build -o runableapp1m "
 	@echo "编译"
 
 
 
 workwithprocess:
-	ssh $(SERVER1) "cd ${GZProDir} && nohup ./runableapp "
+	ssh $(SERVER1) "cd ${GZProDir} && nohup ./runableapp1m "
+	ssh $(SERVER1) "cd ${GZProDir} && nohup ./runableapp1m "
+	ssh $(SERVER1) "cd ${GZProDir} && nohup ./runableapp1m "
+	ssh $(SERVER1) "cd ${GZProDir} && nohup ./runableapp1m "
+	ssh $(SERVER1) "cd ${GZProDir} && nohup ./runableapp1m "
+	ssh $(SERVER1) "cd ${GZProDir} && nohup ./runableapp1m "
 	@echo "以进程方式打开"
 
 
