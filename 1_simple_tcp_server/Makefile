@@ -6,7 +6,7 @@ Version=0.0.1
 
 GZProDir=/home/usera/projects/go/mod-pro/1m-go-tcp-server/${App}
 
-all:gitcommitall fileprepare build imgprepare stopdocker startdocker
+all:gitcommitall fileprepare build workwithprocess
 	@echo "docker 化编译 , 可以借助docker分析工具检测 内存,网络,存储等信息"
 
 gitcommitall:
@@ -23,6 +23,14 @@ build:
 	ssh $(SERVER1) "cd ${GZProDir} && export CGO_ENABLED=0 && go build -o runableapp "
 	@echo "编译"
 
+
+workwithprocess:
+	ssh $(SERVER1) "cd ${GZProDir} && nohup ./runableapp asserver"
+	@echo "以进程方式打开"
+
+
+work:imgprepare stopdocker startdocker 
+	@echo "启动"
 
 imgprepare:
 	ssh $(SERVER1) "cd ${GZProDir} && docker build -t ${App}:${Version} . "
