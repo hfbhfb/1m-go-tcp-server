@@ -25,7 +25,7 @@ build:
 
 
 workwithprocess:
-	ssh $(SERVER1) "cd ${GZProDir} && nohup ./runableapp asserver"
+	ssh $(SERVER1) "cd ${GZProDir} && nohup ./runableapp asserver &"
 	@echo "以进程方式打开"
 
 
