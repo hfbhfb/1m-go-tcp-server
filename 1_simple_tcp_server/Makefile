@@ -22,7 +22,7 @@ imgprepare:
 	
 
 stopdocker:
-	-docker stop appcontain1m
+	-ssh $(SERVER1) "docker stop appcontain1m"
 
 startdocker:
-	-docker run --name appcontain1m --restart always -p 8972:8972 -d ${Version}:${Version}
+	-ssh $(SERVER1) "docker run --name appcontain1m --restart always -p 8972:8972 -d ${Version}:${Version}"
