@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	// setLimit()
+	setLimit()
 
 	ln, err := net.Listen("tcp", ":8972")
 	if err != nil {
