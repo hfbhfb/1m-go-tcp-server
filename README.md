@@ -1,3 +1,12 @@
+
+
+## 碰到的问题
+  * failed to connect 28241 dial tcp 192.168.1.104:8972: connect: cannot assign requested address
+    * 原因,,单docker不能超过 `65500` 个连接 
+
+
+
+
 # Benchmark for implementation of servers that support 1m connections
 
 inspired by [handling 1M websockets connections in Go ](https://github.com/eranyanay/1m-go-websockets)

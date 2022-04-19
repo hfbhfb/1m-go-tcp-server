@@ -6,7 +6,7 @@ Version=0.0.1
 
 GZProDir=/home/usera/projects/go/mod-pro/1m-go-tcp-server/${App}
 
-all:gitcommitall fileprepare build imgprepare stopdocker startdocker
+all:gitcommitall fileprepare build imgprepare work
 	@echo "docker 化编译 , 可以借助docker分析工具检测 内存,网络,存储等信息"
 
 gitcommitall:
@@ -28,12 +28,21 @@ imgprepare:
 	ssh $(SERVER1) "cd ${GZProDir} && docker build -t ${App}:${Version} . "
 	
 
+work:stopdocker startdocker stopdocker2 startdocker2
+	@echo "启动"
+
 stopdocker:
 	-ssh $(SERVER1) "docker stop contain1m${App}"
 	-ssh $(SERVER1) "docker rm contain1m${App}"
-
 startdocker:
 	-ssh $(SERVER1) "docker run --name contain1m${App} --restart always -d ${App}:${Version}"
+
+stopdocker2:
+	-ssh $(SERVER1) "docker stop contain1m${App}"
+	-ssh $(SERVER1) "docker rm contain1m${App}"
+startdocker2:
+	-ssh $(SERVER1) "docker run --name contain1m${App} --restart always -d ${App}:${Version}"
+
 
 
 
