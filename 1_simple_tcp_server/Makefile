@@ -25,4 +25,4 @@ stopdocker:
 	-ssh $(SERVER1) "docker stop appcontain1m"
 
 startdocker:
-	-ssh $(SERVER1) "docker run --name appcontain1m --restart always -p 8972:8972 -d ${Version}:${Version}"
+	-ssh $(SERVER1) "docker run --name appcontain1m --restart always -p 8972:8972 -d ${App}:${Version}"
