@@ -4,7 +4,7 @@ SERVER1=gz1
 App=1mclientapp1
 Version=0.0.1
 
-GZProDir=/home/usera/projects/go/mod-pro/1m-go-tcp-server
+GZProDir=/home/usera/projects/go/mod-pro/1m-go-tcp-server/1_simple_client
 
 all:gitcommitall fileprepare build imgprepare stopdocker startdocker
 	@echo "docker 化编译 , 可以借助docker分析工具检测 内存,网络,存储等信息"
@@ -20,12 +20,12 @@ fileprepare:
 
 
 build:
-	ssh $(SERVER1) "cd ${GZProDir}/1_simple_tcp_server && export CGO_ENABLED=0 && go build -o runableapp "
+	ssh $(SERVER1) "cd ${GZProDir} && export CGO_ENABLED=0 && go build -o runableapp "
 	@echo "编译"
 
 
 imgprepare:
-	ssh $(SERVER1) "cd ${GZProDir}/1_simple_tcp_server && docker build -t ${App}:${Version} . "
+	ssh $(SERVER1) "cd ${GZProDir} && docker build -t ${App}:${Version} . "
 	
 
 stopdocker:
