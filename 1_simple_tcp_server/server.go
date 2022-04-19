@@ -61,10 +61,10 @@ func main() {
 func Mark(count int) {
 	mu.Lock()
 	CurConnCount = CurConnCount + count
+	mu.Unlock()
 	if CurConnCount%1000 == 0 {
 		fmt.Println(CurConnCount)
 	}
-	mu.Unlock()
 }
 
 func handleConn(conn net.Conn) {
