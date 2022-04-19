@@ -11,7 +11,7 @@ import (
 
 var (
 	ip          = flag.String("ip", "192.168.1.104", "server IP")
-	connections = flag.Int("conn", 10000, "number of tcp connections")
+	connections = flag.Int("conn", 100000, "number of tcp connections")
 	startMetric = flag.String("sm", time.Now().Format("2006-01-02T15:04:05 -0700"), "start time point of all clients")
 )
 
@@ -48,18 +48,18 @@ func main() {
 
 	log.Printf("完成初始化 %d 连接", len(conns))
 
-	tts := time.Second
-	if *connections > 100 {
-		tts = time.Millisecond * 5
-	}
+	tts := 20 * time.Second
+	// if *connections > 100 {
+	// 	tts = time.Millisecond * 5
+	// }
 
 	for {
 		for i := 0; i < len(conns); i++ {
-			time.Sleep(tts)
 			conn := conns[i]
 			// log.Printf("连接 %d 发送数据", i)
 			conn.Write([]byte("hello world\r\n"))
 		}
+		time.Sleep(tts)
 	}
 }
 
