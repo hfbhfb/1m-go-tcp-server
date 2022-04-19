@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"io/ioutil"
 	"log"
@@ -52,7 +53,11 @@ func main() {
 }
 
 func handleConn(conn net.Conn) {
-	io.Copy(ioutil.Discard, conn)
+	w, err := io.Copy(ioutil.Discard, conn)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(w)
 }
 
 func setLimit() {
