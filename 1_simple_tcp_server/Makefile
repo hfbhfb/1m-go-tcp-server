@@ -15,7 +15,7 @@ fileprepare:
 
 
 build:
-	ssh $(SERVER1) "cd ${GZProDir} && export CGO_ENABLED=0 && go build -o runableapp "
+	ssh $(SERVER1) "cd ${GZProDir}/1_simple_tcp_server && export CGO_ENABLED=0 && go build -o runableapp "
 
 imgprepare:
 	ssh $(SERVER1) "cd ${GZProDir} && docker build -t ${App}:${Version} . "
