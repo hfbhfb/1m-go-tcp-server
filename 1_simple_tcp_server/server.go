@@ -8,7 +8,13 @@ import (
 	"net"
 	"net/http"
 	_ "net/http/pprof"
+	"sync"
 	"syscall"
+)
+
+var (
+	CurConnCount = 0
+	mu           sync.Mutex
 )
 
 func main() {
@@ -52,12 +58,23 @@ func main() {
 	}
 }
 
+func Mark(count int) {
+	mu.Lock()
+	CurConnCount = CurConnCount + count
+	if CurConnCount%1000 == 0 {
+		fmt.Println(CurConnCount)
+	}
+	mu.Unlock()
+}
+
 func handleConn(conn net.Conn) {
-	w, err := io.Copy(ioutil.Discard, conn)
+	Mark(1)
+	i, err := io.Copy(ioutil.Discard, conn)
+	Mark(-1)
 	if err != nil {
 		fmt.Println(err)
+		fmt.Println(i)
 	}
-	fmt.Println(w)
 }
 
 func setLimit() {
