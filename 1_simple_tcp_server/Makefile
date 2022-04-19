@@ -26,7 +26,7 @@ build:
 
 
 workwithprocess:killprocess
-	-ssh $(SERVER1) "bash ${GZProDir}/runprocess.sh &"
+	-ssh $(SERVER1) "cd ${GZProDir} && bash runprocess.sh "
 	@echo "以进程方式打开"
 
 
