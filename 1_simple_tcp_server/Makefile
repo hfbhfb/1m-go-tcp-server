@@ -26,12 +26,12 @@ build:
 
 
 workwithprocess:killprocess
-	-ssh $(SERVER1) "cd ${GZProDir} && bash runprocess.sh"
+	-ssh $(SERVER1) "bash runprocess.sh "
 	@echo "以进程方式打开"
 
 
 killprocess:
-	-ssh $(SERVER1) "cd ${GZProDir} && bash killprocess.sh"
+	-ssh $(SERVER1) "cd ${GZProDir} && bash killprocess.sh "
 	@echo "杀死进程"
 
 
