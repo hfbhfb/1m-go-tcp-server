@@ -29,6 +29,7 @@ workwithprocess:killprocess
 	@echo "以进程方式打开"
 
 killprocess:
+	-ssh $(SERVER1) "ps -aux|grep runableapp1m|grep asserver|awk '{print $2}'|xargs kill"
 	@echo "杀死进程"
 
 
