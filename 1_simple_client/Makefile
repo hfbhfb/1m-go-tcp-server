@@ -38,10 +38,10 @@ startdocker:
 	-ssh $(SERVER1) "docker run --name contain1m${App} --restart always -d ${App}:${Version}"
 
 stopdocker2:
-	-ssh $(SERVER1) "docker stop contain1m${App}"
-	-ssh $(SERVER1) "docker rm contain1m${App}"
+	-ssh $(SERVER1) "docker stop contain1m2${App}"
+	-ssh $(SERVER1) "docker rm contain1m2${App}"
 startdocker2:
-	-ssh $(SERVER1) "docker run --name contain1m${App} --restart always -d ${App}:${Version}"
+	-ssh $(SERVER1) "docker run --name contain1m2${App} --restart always -d ${App}:${Version}"
 
 
 
