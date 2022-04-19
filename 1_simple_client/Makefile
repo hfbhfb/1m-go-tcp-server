@@ -25,11 +25,15 @@ build:
 
 
 
-workwithprocess:
-	ssh $(SERVER1) "cd ${GZProDir} && nohup ./runableapp1m asclient"
-	ssh $(SERVER1) "cd ${GZProDir} && nohup ./runableapp1m asclient"
+workwithprocess:killprocess
+	# ssh $(SERVER1) "cd ${GZProDir} && nohup ./runableapp1m asclient"
+	# ssh $(SERVER1) "cd ${GZProDir} && nohup ./runableapp1m asclient"
 	@echo "以进程方式打开"
 
+
+killprocess:
+	-ssh $(SERVER1) "cd ${GZProDir} && bash killprocess.sh "
+	@echo "杀死进程"
 
 work:imgprepare stopdocker startdocker stopdocker2 startdocker2
 	@echo "启动"
