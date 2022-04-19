@@ -16,6 +16,11 @@ var (
 )
 
 func main() {
+	fmt.Println("lsfjsldf")
+	fmt.Println("lsfjsldf")
+	fmt.Println("lsfjsldf")
+	fmt.Println("lsfjsldf")
+	fmt.Println("lsfjsldf")
 	flag.Parse()
 
 	setLimit()

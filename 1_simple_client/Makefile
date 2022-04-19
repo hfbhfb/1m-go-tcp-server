@@ -30,6 +30,7 @@ imgprepare:
 
 stopdocker:
 	-ssh $(SERVER1) "docker stop contain${App}"
+	-ssh $(SERVER1) "docker rm contain${App}"
 
 startdocker:
 	-ssh $(SERVER1) "docker run --name contain${App} --restart always -d ${App}:${Version}"
