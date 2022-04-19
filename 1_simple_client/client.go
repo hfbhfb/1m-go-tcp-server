@@ -72,4 +72,8 @@ func setLimit() {
 	if err := syscall.Setrlimit(syscall.RLIMIT_NOFILE, &rLimit); err != nil {
 		panic(err)
 	}
+
+	fmt.Printf("set cur limit: %d", rLimit.Cur)
+	fmt.Println(rLimit)
+
 }
