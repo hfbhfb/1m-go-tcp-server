@@ -12,7 +12,7 @@ import (
 var (
 	// ip          = flag.String("ip", "192.168.1.104", "server IP")
 	ip          = flag.String("ip", "172.17.0.15", "server IP")
-	connections = flag.Int("conn", 30000, "number of tcp connections")
+	connections = flag.Int("conn", 60000, "number of tcp connections")
 	startMetric = flag.String("sm", time.Now().Format("2006-01-02T15:04:05 -0700"), "start time point of all clients")
 )
 
@@ -26,6 +26,7 @@ func main() {
 
 	setLimit()
 
+	iBreak := 0
 	addr := *ip + ":8972"
 	log.Printf("连接到 %s", addr)
 	var conns []net.Conn
@@ -35,8 +36,13 @@ func main() {
 			fmt.Println("failed to connect", i, err)
 			i--
 
-			break
-			// continue
+			iBreak++
+			time.Sleep(time.Microsecond * 20)
+			if iBreak > 50 {
+				break
+			}
+
+			continue
 		}
 		conns = append(conns, c)
 		time.Sleep(time.Millisecond)
