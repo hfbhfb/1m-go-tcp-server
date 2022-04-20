@@ -7,7 +7,7 @@ Version=0.0.1
 GZProDir=/home/usera/projects/go/mod-pro/1m-go-tcp-server/${App}
 
 
-all:gitcommitall fileprepare build workwithprocess
+all:gitcommitall fileprepare build workwithdocker
 	@echo "docker 化编译 , 可以借助docker分析工具检测 内存,网络,存储等信息"
 
 gitcommitall:
@@ -35,7 +35,7 @@ killprocess:
 	@echo "杀死进程"
 
 
-work:imgprepare stopdocker startdocker 
+workwithdocker:imgprepare stopdocker startdocker 
 	@echo "启动"
 
 imgprepare:
