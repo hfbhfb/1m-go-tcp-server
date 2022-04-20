@@ -24,16 +24,8 @@ build:
 	@echo "编译"
 
 
-workwithdocker:imgprepare stopdocker startdocker stopdocker2 startdocker2 stopdocker3 startdocker3 stopdocker4 startdocker4 stopdocker5 startdocker5 stopdocker6 startdocker6
+workwithdocker:imgprepare stopdocker startdocker stopdocker2 startdocker2 stopdocker3 startdocker3 stopdocker4 startdocker4 stopdocker5 startdocker5 stopdocker6 startdocker6 stopdocker7 startdocker7 stopdocker8 startdocker8 stopdocker9 startdocker9 stopdocker10 startdocker10 stopdocker11 startdocker11 stopdocker12 startdocker12 stopdocker13 startdocker13
 	@echo "启动"
-
-# stopdocker7 startdocker7
-# stopdocker8 startdocker8
-# stopdocker9 startdocker9
-# stopdocker10 startdocker10
-# stopdocker11 startdocker11
-# stopdocker12 startdocker12
-# stopdocker13 startdocker13
 # stopdocker14 startdocker14
 # stopdocker15 startdocker15
 # stopdocker16 startdocker16
