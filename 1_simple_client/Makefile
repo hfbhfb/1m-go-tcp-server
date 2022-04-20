@@ -27,7 +27,7 @@ build:
 
 workwithprocess:killprocess
 	ssh $(SERVER1) "cd ${GZProDir} && nohup ./runableapp1m asclient &"
-	# ssh $(SERVER1) "cd ${GZProDir} && nohup ./runableapp1m asclient &"
+	ssh $(SERVER1) "cd ${GZProDir} && nohup ./runableapp1m asclient &"
 	@echo "以进程方式打开"
 
 
