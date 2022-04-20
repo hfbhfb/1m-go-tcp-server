@@ -33,7 +33,9 @@ func main() {
 		if err != nil {
 			fmt.Println("failed to connect", i, err)
 			i--
-			continue
+
+			break
+			// continue
 		}
 		conns = append(conns, c)
 		time.Sleep(time.Millisecond)
