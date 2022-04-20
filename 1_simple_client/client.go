@@ -59,6 +59,7 @@ func main() {
 			// log.Printf("连接 %d 发送数据", i)
 			conn.Write([]byte("hello world\r\n"))
 		}
+		log.Printf("sleep %d 连接", len(conns))
 		time.Sleep(tts)
 	}
 }
