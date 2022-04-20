@@ -51,10 +51,10 @@ func main() {
 		}
 
 		go handleConn(conn)
-		connections = append(connections, conn)
-		if len(connections)%1000 == 0 {
-			log.Printf("total number of connections: %v\n", len(connections))
-		}
+		// connections = append(connections, conn)
+		// if len(connections)%1000 == 0 {
+		// 	log.Printf("total number of connections: %v\n", len(connections))
+		// }
 	}
 }
 
@@ -68,6 +68,9 @@ func Mark(count int) {
 }
 
 func handleConn(conn net.Conn) {
+	defer func() {
+		conn.Close()
+	}()
 	Mark(1)
 	i, err := io.Copy(ioutil.Discard, conn)
 	Mark(-1)
