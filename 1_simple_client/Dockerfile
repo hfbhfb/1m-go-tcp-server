@@ -2,4 +2,4 @@
 FROM ubuntu:18.04
 COPY . /program/
 WORKDIR /program
-CMD ["sh", "-c", "nohup /program/runableapp1m"]
+CMD ["sh", "-c", "nohup /program/runableapp asclient"]

@@ -21,7 +21,7 @@ fileprepare:
 
 
 build:
-	ssh $(SERVER1) "cd ${GZProDir} && export CGO_ENABLED=0 && go build -o runableapp1m "
+	ssh $(SERVER1) "cd ${GZProDir} && export CGO_ENABLED=0 && go build -o runableapp "
 	@echo "编译"
 
 
